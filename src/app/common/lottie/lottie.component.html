@@ -1,0 +1,23 @@
+<nav class="px-2 py-2 text-center">
+    <div class="flex flex-wrap items-center justify-center">
+        <a (click)="updateAnimation('welcome')" class="top-menu">Welcome</a>
+
+        <a (click)="updateAnimation('404')" class="top-menu">404</a>
+
+        <a (click)="updateAnimation('cycleing')" class="top-menu">cycleing</a>
+
+        <a (click)="updateAnimation('like')" class="top-menu">like</a>
+
+        <a (click)="updateAnimation('loading')" class="top-menu">loading</a>
+
+        <a (click)="updateAnimation('scanning')" class="top-menu">scanning</a>
+    </div>
+</nav>
+<div class="container">
+    <ng-lottie [styles]="styles" [options]="options" (animationCreated)="animationCreated($event)"></ng-lottie>
+    <div>
+        <button class="btn bg-red-400" (click)="stop()">Stop</button>
+        <button class="btn bg-green-400" (click)="play()">Play</button>
+        <button class="btn bg-yellow-400" (click)="pause()">Pause</button>
+    </div>
+</div>

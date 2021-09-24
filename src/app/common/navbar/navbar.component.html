@@ -1,0 +1,41 @@
+<div id="mySidenav" class="sidenav">
+    <div class="top-dark-lg">
+
+        <div class="profile" *ngIf="user">
+            <img *ngIf="user.pic" [src]="user.pic" alt="profile-pic">
+            <h4 *ngIf="user.name">{{ user.name }}</h4>
+        </div>
+        <div *ngIf="topMenu && topMenu.length > 0" class="menus">
+            <div class="menu-item" (click)="navigate(item.link, item.name)"
+                [ngClass]="{'active': selectedMenuItem === item.name}" *ngFor="let item of topMenu">
+                <span class="title">{{ item.title }}</span>
+                <span class="action-icon">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAgKADAAQAAAABAAAAgAAAAABIjgR3AAADMUlEQVR4Ae3bMYoUYRCG4Z0dj2EqgicwMTAVvIOhmXsDFyMP4AHExDuYmHoGA0MxV1PH6mBhENGuqR4oy6eh2An66/7rfT8WJpiLCxcCCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCBwRgKHw2G/zBlf4dFdCYT4q5hvMV9jnnU9p3OdgUAIv4759Xp5hld5ZDcCYf138m/KoATdhG15nr/IV4ItYXd7Vth9emN4xd/rbud3niKBkP5xhfjjW5SgyLxVPMx+OLa78rMStLJYOEwIvx/zfaX449uUoMC9VTSsPohZvvdnL98OWpksHCbMK0GB34ioEozQWFtCCWr8RqSVYITG2hJKUOM3Iq0EIzTWllCCGr8RaSUYobG2hBLU+I1IK8EIjbUllKDGb0RaCUZorC2hBDV+I9JKMEJjbQklqPEbkVaCERprSyhBjd+ItBKM0FhbQglq/EaklWCExtoSSlDjNyKtBCM01pZQghq/EWklGKGxtkSU4GHMKb9Ael57s3QbAoUSPG6zxMqDXK6877+6bbfbvY+Fr05Y+tEJGZFuBOI/wL2YLzHZ60m3XZwnSSCMnyr/TWR3yde5vROBEHg35nNM9nobgVuddnGWJIEQSH6S2ZjbyR+jMr8I+XlmYxLkj1GZX4T8PLMxCfLHqMwvQn6e2ZgE+WNU5hchP89sTIL8MSrzi5CfZzYmQf4YlflFyM8zG5Mgf4zK/CLk55mNSZA/RmV+EfLzzMYkyB+jMr8I+XlmYxLkj1GZX4T8PLMxCfLHqMwvQn6e2ZgE+WNU5hcJ+XdiTvm51vKLnX3+jRKtCITEdzHZi/xWFguHCfOfkvbJL/BuFw35LxIFIL+dweKBQv5lzOsVJfBDzSLrtvEVJSC/rb2NDvaHEpC/EeP2j4kS7GNexSzXj5jls6967c1tfMCQfnuZjR/rcQgggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAII/CsEfgK/u1XhEEjsWAAAAABJRU5ErkJggg=="
+                        alt="go-icon" width="20px">
+                </span>
+            </div>
+        </div>
+        <div *ngIf="topMenuFlagText" class="option">{{ topMenuFlagText }}</div>
+
+    </div>
+    <div *ngIf="bottomMenu && bottomMenu.length > 0" class="down-light-lg-menu">
+        <div class="menu-item" (click)="navigate(item.link, item.name)"
+            [ngClass]="{'active': selectedMenuItem === item.name}" *ngFor="let item of bottomMenu">{{
+            item.title }}</div>
+    </div>
+    <div class="footer">
+        <span *ngIf="legal" class="first">
+            {{ legal.title }}
+        </span>
+        <span *ngIf="version" class="version">{{ version }}</span>
+    </div>
+</div>
+
+<!-- Use any element to open the sidenav -->
+<div class="menu-icon-container" (click)="openNav()">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+<div id="mask"></div>
